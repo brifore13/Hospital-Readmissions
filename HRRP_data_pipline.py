@@ -67,10 +67,10 @@ df['Observed Readmission Rate'] = (
 # Map condition to measure name
 conditions = { 
             "READM-30-AMI-HRRP": "Heart Attack", 
-            "READM-30-CABG-HRRP": "Coronary Artery Bypass Graft",
-            "READM-30-COPD-HRRP": "Chronic Obstructive Pulmonary Disease",
+            "READM-30-CABG-HRRP": "CABG",
+            "READM-30-COPD-HRRP": "COPD",
             "READM-30-HF-HRRP": "Heart Failure",
-            "READM-30-HIP-KNEE-HRRP": "Total Hip/Knee Arthroplasty",
+            "READM-30-HIP-KNEE-HRRP": "THA/TKA",
             "READM-30-PN-HRRP": "Pneumonia"
             }
 df['Condition'] = df['Measure Name'].map(conditions)
@@ -89,6 +89,10 @@ region_map = {
     'HI': 'West', 'OR': 'West', 'WA': 'West',
 }
 df['Region'] = df['State'].map(region_map).fillna('Territories')
+
+# Calculate Percentages
+df['Observed Readmission Rate Pct'] = (df['Observed Readmission Rate'] * 100).round(1)
+df['Is Penalized Pct'] = df['Is Penalized'] * 100
 
 # =============================================================
 # 4. SUMMARY STATISTICS
