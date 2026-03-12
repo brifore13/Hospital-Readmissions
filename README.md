@@ -1,5 +1,5 @@
 # CMS Hospital Readmission Reduction Program
-### Data Cleaned and Processed: Pandas and Numpy
+### Data Cleaned and Processed: Pandas and NumPy
 ### Data Analytics and Visualization: Power BI
 
 ## Executive Overview
